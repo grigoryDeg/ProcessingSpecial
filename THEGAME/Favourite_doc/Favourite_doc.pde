@@ -19,6 +19,8 @@ float B;
 float u = 0.2;
 float v = 0;
 float S;
+float D;
+PImage photo;
 import ddf.minim.*;
 
 Minim minim;
@@ -30,6 +32,7 @@ void setup() {
   minim = new Minim(this);
   player = minim.loadFile("innotic beats - blender.mp3");
   player.play();
+  photo=loadImage("Goals.jpg");
 }
 
 void draw() {
@@ -71,12 +74,15 @@ void draw() {
     ellipse(KoordinataX,KoordinataY,40,40);
    rasst1 =  sqrt((KoordinataX - x)*(KoordinataX- x) + (KoordinataY - y)*(KoordinataY - y));
   println(rasst1);
+  image(photo,KoordinataX - 20,KoordinataY - 35);
+ 
 
   if (rasst1 <= 30) {
     KoordinataX = random(40,460);
     KoordinataY = random(40,460);
     points = points + 20; 
   }
+  
   if(y >= 475) {
     textSize(32 + v);
     fill(255,50,0);
